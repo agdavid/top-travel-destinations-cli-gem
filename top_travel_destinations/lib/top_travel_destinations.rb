@@ -1,5 +1,7 @@
-require "top_travel_destinations/version"
+#require_relative "./top_travel_destinations/version"
 
-module TopTravelDestinations
+#module TopTravelDestinations
   # Your code goes here...
-end
+#end
+
+#require_relative './top_travel_destinations/cli'
