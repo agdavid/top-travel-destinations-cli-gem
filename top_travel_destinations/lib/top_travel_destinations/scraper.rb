@@ -2,7 +2,7 @@ class TopTravelDestinations::Scraper
 
   #1. Need a scraper to get the Top 9 Regions and return an array of hashes to send to Region Class
   def self.scrape_regions_array(index_url)
-    # a. method takes index_url(http://www.fodors.com/world/) as argument
+    # a. method takes BASE_URL(http://www.tripadvisor.com/TravelersChoice-Destinations) as argument
     # b. uses open-uri to get HTML
     html = open(index_url)
     # c. uses Nokogiri to get NodeNest
@@ -26,7 +26,21 @@ class TopTravelDestinations::Scraper
   end
 
   #2. Need a scraper to get the Top 10 Destinations of each Region as an array of arrays then send to Region Class and add as key-value pair
-  
+  def self.scrape_destinations_array(profile_url)
+    # a. method takes region_url from each Region instance as argument
+    # b. uses open-uri to get HTML
+    html = open(profile_url)
+    # c. uses Nokogiri to get NodeNest
+    doc = Nokogiri::HTML(html)
+
+    destinations_array = []
+
+    doc.search("div.winnerName div.mainName a").each do |destination|
+      name = destination.text
+      destinations_array << name
+    end
+    destinations_array
+  end
 
 
 end
