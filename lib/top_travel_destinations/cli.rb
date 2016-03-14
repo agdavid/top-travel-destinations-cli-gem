@@ -10,6 +10,17 @@ class TopTravelDestinations::CLI
   end
 
   def welcome_screen
+    puts "\n"
+    puts "Welcome to Top Destinations"
+    puts "\n"
+    puts "          .-'';'-."
+    puts "        ,'   <_,-.`."
+    puts "       /)   ,--,_>\\_\\ "
+    puts "      |'   (      \\_ |"
+    puts "      |_    `-.    / |"
+    puts "       \\`-.   ;  _(`/"
+    puts "        `.(    \\/ ,'"
+    puts "          `-....-'"
   end
 
   def make_regions
@@ -25,7 +36,8 @@ class TopTravelDestinations::CLI
   end
 
   def list_regions
-    puts "Regions of the World"
+    puts "\n"
+    puts "Here are the Regions of the World:"
     TopTravelDestinations::Region.all.each_with_index do |region, index|
       puts "#{index+1}. #{region.name}"
     end
@@ -34,6 +46,7 @@ class TopTravelDestinations::CLI
   def select_region
     input = nil
     while input != "exit"
+      puts "\n"
       puts "Enter the number of the region for which you would like the Top Destinations."
       puts "Enter 'list' to see the regions again, or type 'exit'."
       input = gets.strip.downcase 
@@ -45,13 +58,15 @@ class TopTravelDestinations::CLI
       elsif input == "exit"
         goodbye
       else
+        puts "\n"
         puts "Please input a valid command."
       end #end case
     end #end while loop
   end #end method
 
   def show_top_destinations(index_value)
-    puts "The Top Destinations For the #{TopTravelDestinations::Region.all[index_value].name} are:"
+    puts "\n"
+    puts "The Top Destinations For the #{TopTravelDestinations::Region.all[index_value].name} region are:"
     counter = 1
     TopTravelDestinations::Region.all[index_value].destinations.each do |destination|
       puts "#{counter}. #{destination}"
@@ -60,7 +75,17 @@ class TopTravelDestinations::CLI
   end
 
   def goodbye
-    puts "The World is your oyster. Safe travels!"
+    puts "\n"
+    puts "The World is your oyster. Thanks for using Top Travel Destinations" 
+    puts <<-DOC
+ _________________________          _____
+|                         \\          \\ * \\__      _____
+|   Safe                   \\__________\\   \\/_______\\___\\_____________
+|   Travels!               /          < /_/   .....................  `-.
+|_________________________/            `-----------,----,--------------'
+                                                 _/____/
+    
+    DOC
   end
 
 end
