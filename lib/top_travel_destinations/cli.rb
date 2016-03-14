@@ -11,7 +11,7 @@ class TopTravelDestinations::CLI
 
   def welcome_screen
     puts "\n"
-    puts "Welcome to Top Destinations"
+    puts "Welcome to Top Travel Destinations"
     puts "\n"
     puts "          .-'';'-."
     puts "        ,'   <_,-.`."
@@ -47,7 +47,7 @@ class TopTravelDestinations::CLI
     input = nil
     while input != "exit"
       puts "\n"
-      puts "Enter the number of the region for which you would like the Top Destinations."
+      puts "Enter the number of the region for which you would like the Top Travel Destinations."
       puts "Enter 'list' to see the regions again, or type 'exit'."
       input = gets.strip.downcase 
       if (1..TopTravelDestinations::Region.all.count).to_a.include?(input.to_i)
@@ -76,7 +76,8 @@ class TopTravelDestinations::CLI
 
   def goodbye
     puts "\n"
-    puts "The World is your oyster. Thanks for using Top Travel Destinations!" 
+    puts "                       The World is your oyster." 
+    puts "               Thanks for using Top Travel Destinations!" 
     puts <<-DOC
  _________________________          _____
 |                         \\          \\ * \\__      _____

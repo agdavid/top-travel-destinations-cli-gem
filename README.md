@@ -7,7 +7,7 @@ Welcome to the Top Travel Destinations CLI gem! This gem was inspired by a love 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'top_travel_destinations'
+gem 'top-travel-destinations-cli-gem'
 ```
 
 And then execute:
@@ -16,13 +16,13 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install top_travel_destinations
+    $ gem install top-travel-destinations-cli-gem
 
 ## Usage
 
 The Top Travel Destinations CLI gem has simple instructions:
 1) At the "Here are the Regions of the World" prompt, enter an alphanumeric number (i.e., 1-9) to select a region.
-2) The gem will automatically generate the Top Destinations for that region.
+2) The gem will automatically generate the Top Travel Destinations for that region.
 3) After viewing Top Destinations for one region, either enter:
     (a)'list' to return to the list of regions;
     (b) 'exit' to leave the gem.
