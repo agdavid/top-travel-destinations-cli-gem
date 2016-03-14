@@ -1,8 +1,6 @@
 # TopTravelDestinations
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/top_travel_destinations`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the Top Travel Destinations CLI gem! This gem was inspired by a love for traveling the world and learning about new cultures and experiences. The gem uses information from the TripAdvisor Travelers' Choice Destinations website (http://www.tripadvisor.com/TravelersChoice-Destinations) to provide you with easy-access to two levels of information: (1) the regions of the world; and (2) the top destinations of that region, as provided by TripAdvisor.  The world is your oyster. Safe travels and thank you for using the Top Travel Destinations CLI gem.  
 
 ## Installation
 
@@ -22,7 +20,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The Top Travel Destinations CLI gem has simple instructions:
+1) At the "Here are the Regions of the World" prompt, enter an alphanumeric number (i.e., 1-9) to select a region.
+2) The gem will automatically generate the Top Destinations for that region.
+3) After viewing Top Destinations for one region, either enter:
+    (a)'list' to return to the list of regions;
+    (b) 'exit' to leave the gem.
 
 ## Development
 

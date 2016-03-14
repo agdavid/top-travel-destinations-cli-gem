@@ -76,7 +76,7 @@ class TopTravelDestinations::CLI
 
   def goodbye
     puts "\n"
-    puts "The World is your oyster. Thanks for using Top Travel Destinations" 
+    puts "The World is your oyster. Thanks for using Top Travel Destinations!" 
     puts <<-DOC
  _________________________          _____
 |                         \\          \\ * \\__      _____
