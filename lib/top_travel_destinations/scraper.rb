@@ -6,12 +6,12 @@ class TopTravelDestinations::Scraper
 
     region_array = []
 
-    doc.search("#tcRegions .tocContainer a").each do |regionnode|
+    doc.search("#tcRegions .tocContainer a").collect do |regionnode|
       name = regionnode.text
       sub_url = regionnode.attribute("href").value
       region_array << {
         :name => name,
-        :region_url => "http://www.tripadvisor.com#{sub_url}"
+        :region_url => "https://www.tripadvisor.com#{sub_url}"
       }
     end #end iterator
     region_array
@@ -23,11 +23,11 @@ class TopTravelDestinations::Scraper
 
     destinations_array = []
 
-    doc.search("div.winnerName div.mainName a").each do |destination|
+    doc.search("div.winnerName div.mainName a").collect do |destination|
       name = destination.text
       destinations_array << name
     end#end iterator
     destinations_array
-  end
+  end#end method
 
 end #end Class

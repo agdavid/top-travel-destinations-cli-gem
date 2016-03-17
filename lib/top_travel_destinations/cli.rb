@@ -1,5 +1,5 @@
 class TopTravelDestinations::CLI
-  BASE_URL = "http://www.tripadvisor.com/TravelersChoice-Destinations"
+  BASE_URL = "https://www.tripadvisor.com/TravelersChoice-Destinations"
 
   def call
     welcome_screen
@@ -48,7 +48,7 @@ class TopTravelDestinations::CLI
     while input != "exit"
       puts "\n"
       puts "Enter the number of the region for which you would like the Top Travel Destinations."
-      puts "Enter 'list' to see the regions again, or type 'exit'."
+      puts "Enter 'list' to see the regions again OR type 'exit'."
       input = gets.strip.downcase 
       if (1..TopTravelDestinations::Region.all.count).to_a.include?(input.to_i)
         index_value = input.to_i-1
@@ -65,10 +65,12 @@ class TopTravelDestinations::CLI
   end #end method
 
   def show_top_destinations(index_value)
+    #refactored calling the specific region and set equal to local variable 'region_instance'
+    region_instance = TopTravelDestinations::Region.all[index_value]
     puts "\n"
-    puts "The Top Destinations For the #{TopTravelDestinations::Region.all[index_value].name} region are:"
+    puts "The Top Destinations For the #{region_instance.name} region are:"
     counter = 1
-    TopTravelDestinations::Region.all[index_value].destinations.each do |destination|
+    region_instance.destinations.each do |destination|
       puts "#{counter}. #{destination}"
       counter +=1
     end
