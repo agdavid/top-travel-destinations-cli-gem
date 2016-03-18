@@ -1,6 +1,7 @@
 class TopTravelDestinations::Scraper
 
-  def self.scrape_regions_array(index_url)
+  def self.scrape_regions_array
+    index_url = "https://www.tripadvisor.com/TravelersChoice-Destinations"
     html = open(index_url)
     doc = Nokogiri::HTML(html)
 
@@ -16,18 +17,5 @@ class TopTravelDestinations::Scraper
     end #end iterator
     region_array
   end #end method
-
-  def self.scrape_destinations_array(profile_url)
-    html = open(profile_url)
-    doc = Nokogiri::HTML(html)
-
-    destinations_array = []
-
-    doc.search("div.winnerName div.mainName a").collect do |destination|
-      name = destination.text
-      destinations_array << name
-    end#end iterator
-    destinations_array
-  end#end method
 
 end #end Class

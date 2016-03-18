@@ -1,10 +1,8 @@
 class TopTravelDestinations::CLI
-  BASE_URL = "https://www.tripadvisor.com/TravelersChoice-Destinations"
-
+  
   def call
     welcome_screen
     make_regions
-    add_destinations_to_regions
     list_regions
     select_region
   end
@@ -24,15 +22,8 @@ class TopTravelDestinations::CLI
   end
 
   def make_regions
-    region_array = TopTravelDestinations::Scraper.scrape_regions_array(BASE_URL)
+    region_array = TopTravelDestinations::Region.get_regions
     TopTravelDestinations::Region.create_from_array(region_array)
-  end
-
-  def add_destinations_to_regions
-    TopTravelDestinations::Region.all.each do |region|
-      destinations_array = TopTravelDestinations::Scraper.scrape_destinations_array(region.region_url)
-      region.create_attribute_from_array(destinations_array)
-    end
   end
 
   def list_regions
