@@ -2,7 +2,7 @@ class TopTravelDestinations::CLI
   
   def call
     welcome_screen
-    make_regions
+    make_regions_and_destinations
     list_regions
     select_region
   end
@@ -21,9 +21,9 @@ class TopTravelDestinations::CLI
     puts "          `-....-'"
   end
 
-  def make_regions
-    region_array = TopTravelDestinations::Region.get_regions
-    TopTravelDestinations::Region.create_from_array(region_array)
+  def make_regions_and_destinations
+    regions_array = TopTravelDestinations::Region.get_regions
+    TopTravelDestinations::Region.create_from_array(regions_array)
   end
 
   def list_regions
@@ -56,12 +56,11 @@ class TopTravelDestinations::CLI
   end #end method
 
   def show_top_destinations(index_value)
-    #refactored calling the specific region and set equal to local variable 'region_instance'
     region_instance = TopTravelDestinations::Region.all[index_value]
     puts "\n"
     puts "The Top Destinations For the #{region_instance.name} region are:"
     counter = 1
-    region_instance.destinations.each do |destination|
+    region_instance.destination_names.each do |destination|
       puts "#{counter}. #{destination}"
       counter +=1
     end
