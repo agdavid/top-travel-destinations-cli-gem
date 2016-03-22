@@ -1,6 +1,6 @@
 # TopTravelDestinations
 
-Welcome to the Top Travel Destinations CLI gem! This gem was inspired by a love for traveling the world and learning about new cultures and experiences. The gem uses information from the TripAdvisor Travelers' Choice Destinations website (http://www.tripadvisor.com/TravelersChoice-Destinations) to provide you with easy-access to two levels of information: (1) the regions of the world; and (2) the top destinations of that region, as provided by TripAdvisor.  The world is your oyster. Safe travels and thank you for using the Top Travel Destinations CLI gem.  
+Welcome to the Top Travel Destinations CLI gem! This gem was inspired by a love for traveling the world and learning about new cultures and experiences. The gem uses information from the TripAdvisor Travelers' Choice Destinations website (http://www.tripadvisor.com/TravelersChoice-Destinations) to provide you with easy-access to three levels of information: (1) the regions of the world; (2) the top destinations of that region; and (3) a description of each top destination, as provided by TripAdvisor.  The world is your oyster. Safe travels and thank you for using the Top Travel Destinations CLI gem.  
 
 ## Installation
 
@@ -22,10 +22,11 @@ Or install it yourself as:
 
 The Top Travel Destinations CLI gem has simple instructions:
 1) At the "Here are the Regions of the World" prompt, enter an alphanumeric number (i.e., 1-9) to select a region.
-2) The gem will automatically generate the Top Travel Destinations for that region.
-3) After viewing Top Destinations for one region, either enter:
-    (a)'list' to return to the list of regions;
-    (b) 'exit' to leave the gem.
+2) At the "Here are the Top Travel Destinations For the Region" prompt, enter an alphanumeric number to select a destination.
+3) Other options for viewing various menus, include:
+    (a) 'regions' to return to the list of regions;
+    (b) 'destinations' to return to the list of destinations for a region;
+    (c) 'exit' to leave the gem.
 
 ## Development
 

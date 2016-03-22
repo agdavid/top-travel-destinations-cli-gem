@@ -1,7 +1,7 @@
 class TopTravelDestinations::Destination
 
   #creates "belongs to" relationship to instance of Region
-  attr_accessor :name, :region
+  attr_accessor :name, :region, :description
 
   @@all = []
 

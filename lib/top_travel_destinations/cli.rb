@@ -4,7 +4,6 @@ class TopTravelDestinations::CLI
     welcome_screen
     make_regions_and_destinations
     list_regions
-    select_region
   end
 
   def welcome_screen
@@ -24,6 +23,7 @@ class TopTravelDestinations::CLI
   def make_regions_and_destinations
     regions_array = TopTravelDestinations::Region.get_regions
     TopTravelDestinations::Region.create_from_array(regions_array)
+    #Destination instances are instantiated within the Region Class, after each Region instance is instantiated
   end
 
   def list_regions
@@ -32,39 +32,69 @@ class TopTravelDestinations::CLI
     TopTravelDestinations::Region.all.each_with_index do |region, index|
       puts "#{index+1}. #{region.name}"
     end
+    select_region
   end
 
   def select_region
-    input = nil
-    while input != "exit"
+    #input = nil
+    #while input != "exit"
       puts "\n"
-      puts "Enter the number of the region for which you would like the Top Travel Destinations."
-      puts "Enter 'list' to see the regions again OR type 'exit'."
+      puts "Enter the number of the region (1-#{TopTravelDestinations::Region.all.count}) for which you would like the Top Travel Destinations."
+      puts "Enter 'regions' to see the regions again OR type 'exit'."
       input = gets.strip.downcase 
       if (1..TopTravelDestinations::Region.all.count).to_a.include?(input.to_i)
-        index_value = input.to_i-1
-        show_top_destinations(index_value)
-      elsif input == "list"
+        region_index = input.to_i-1
+        list_destinations(region_index)
+      elsif input == "regions"
         list_regions
+        select_region
       elsif input == "exit"
         goodbye
       else
         puts "\n"
         puts "Please input a valid command."
-      end #end case
-    end #end while loop
+        select_region
+      end #end if statement
+    #end #end while loop
   end #end method
 
-  def show_top_destinations(index_value)
-    region_instance = TopTravelDestinations::Region.all[index_value]
+  def list_destinations(region_index)
+    region = TopTravelDestinations::Region.all[region_index]
     puts "\n"
-    puts "The Top Destinations For the #{region_instance.name} region are:"
+    puts "Here are the Top #{region.destinations.count} Travel Destinations For the #{region.name} Region:"
     counter = 1
-    region_instance.destination_names.each do |destination|
+    region.destination_names.each do |destination|
       puts "#{counter}. #{destination}"
       counter +=1
     end
+    select_destination(region_index)
   end
+  
+  def select_destination(region_index)
+    region = TopTravelDestinations::Region.all[region_index]
+    puts "\n"
+    puts "Enter the number of the Top #{region.name} Travel Destination (1-#{region.destinations.count}) for which you would like a description."
+    puts "Enter 'destinations' to see the list of #{region.name} destinations again OR 'regions' to go back to the regions OR 'exit'."
+      input = gets.strip.downcase
+      if input == "regions"
+        list_regions
+      elsif input == "destinations"
+        list_destinations(region_index)
+      elsif input == "exit"
+        goodbye
+      elsif (1..region.destinations.count).to_a.include?(input.to_i)
+        destination_index = input.to_i-1
+        puts "\n"
+        puts "Destination: #{region.destinations[destination_index].name}, Region: #{region.name}"
+        puts "\n"
+        puts "Summary: #{region.destinations[destination_index].description}"
+        select_destination(region_index) 
+      else
+        puts "\n"
+        puts "Please input a valid command."
+        select_destination(region_index)
+      end #end if statement
+  end #end method
 
   def goodbye
     puts "\n"
@@ -79,6 +109,7 @@ class TopTravelDestinations::CLI
                                                  _/____/
     
     DOC
+    puts "                        Information from TripAdvisor"
   end
 
 end

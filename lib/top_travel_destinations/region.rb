@@ -45,17 +45,19 @@ class TopTravelDestinations::Region
     doc = Nokogiri::HTML(html)
 
     destinations_array = []
-    
-    doc.search("div.winnerName div.mainName a").collect do |destination|
-      name = destination.text
-      #description = ... code to come
-      destinations_array << {
-        :name => name
-        #:description = description
-      }
-    end#end iterator
+
+    doc.css("div#WINNERVIEWER").children.each do |destination|
+      name = destination.search("div.mainName a").text
+      description = destination.search("div.descr_lb").text      
+      
+      if name != "" && description !=""
+        destinations_array << {
+          :name => name,
+          :description => description}
+      end
+    end #end iterator
     destinations_array
-  end#end iterator
+  end #end method
 
   #creates "has many" relationship to instance of Region
   def add_destinations(destinations_array)
@@ -72,6 +74,14 @@ class TopTravelDestinations::Region
       destinations_names_array << destination.name
     end
     destinations_names_array 
+  end
+
+  def destination_descriptions
+    destinations_descriptions_array = []
+    self.destinations.each do |destination|
+      destinations_descriptions_array << destination.description 
+    end
+    destinations_descriptions_array
   end
 
 end

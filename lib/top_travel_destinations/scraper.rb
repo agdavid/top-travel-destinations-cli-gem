@@ -7,7 +7,7 @@ class TopTravelDestinations::Scraper
 
     regions_array = []
 
-    doc.search("#tcRegions .tocContainer a").collect do |regionnode|
+    doc.search("div.cont a").collect do |regionnode|
       name = regionnode.text
       sub_url = regionnode.attribute("href").value
       regions_array << {
