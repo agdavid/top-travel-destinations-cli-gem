@@ -1,45 +1,33 @@
 # TopTravelDestinations
+Welcome to the Top Travel Destinations CLI gem! This gem was inspired by a love for traveling the world and learning about new cultures and experiences. The gem uses information from the [TripAdvisor Travelers' Choice Destinations website](http://www.tripadvisor.com/TravelersChoice-Destinations) to provide you with easy-access to three levels of information:
 
-Welcome to the Top Travel Destinations CLI gem! This gem was inspired by a love for traveling the world and learning about new cultures and experiences. The gem uses information from the TripAdvisor Travelers' Choice Destinations website (http://www.tripadvisor.com/TravelersChoice-Destinations) to provide you with easy-access to three levels of information: (1) the regions of the world; (2) the top destinations of that region; and (3) a description of each top destination, as provided by TripAdvisor.  The world is your oyster. Safe travels and thank you for using the Top Travel Destinations CLI gem.  
+1. the regions of the world
+2. the top destinations of that region
+3. a description of each top destination, as provided by TripAdvisor.  
+
+The world is your oyster. Safe travels and thank you for using the Top Travel Destinations CLI gem.  
 
 ## Installation
+In terminal, execute the following installation command:
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'top-travel-destinations-cli-gem'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install top-travel-destinations-cli-gem
+    gem install top-travel-destinations-cli-gem
 
 ## Usage
-
 The Top Travel Destinations CLI gem has simple instructions:
-1) At the "Here are the Regions of the World" prompt, enter an alphanumeric number (i.e., 1-9) to select a region.
-2) At the "Here are the Top Travel Destinations For the Region" prompt, enter an alphanumeric number to select a destination.
-3) Other options for viewing various menus, include:
+
+1. In terminal, run the gem (<tt>top-travel-destinations</tt>)
+2. At the "Here are the Regions of the World" prompt, enter an alphanumeric number to select a region.
+3. At the "Here are the Top Travel Destinations For the Region" prompt, enter an alphanumeric number to select a destination.
+4. Other options for viewing various menus, include:
     (a) 'regions' to return to the list of regions;
     (b) 'destinations' to return to the list of destinations for a region;
     (c) 'exit' to leave the gem.
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
 ## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/agdavid/top-travel-destinations-cli-gem. 
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/agdavid/top-travel-destinations-cli-gem. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
-
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+This project was created as part of the curriculum of Learn.co which is publicly and freely available under [Learn's Educational Content License](https://learn.co/content-license).
 
